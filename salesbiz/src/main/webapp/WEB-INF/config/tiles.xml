@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+     <definition name="home.definition"
+		template="/jsp/templates/home-template.jsp">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="header" value="/jsp/common/header.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="footer" value="/jsp/common/footer.jsp"></put-attribute>
+	</definition>
+
+	<definition name="login.definition"
+		template="/jsp/templates/login-template.jsp">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="header" value="/jsp/common/header.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="footer" value="/jsp/common/footer.jsp"></put-attribute>
+	</definition>
+
+	<definition name="main.definition"
+		template="/jsp/templates/main-template.jsp">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="header" value="/jsp/common/header.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="footer" value="/jsp/common/footer.jsp"></put-attribute>
+	</definition>
+
+	<definition name="admin.definition"
+		template="/jsp/templates/admin-template.jsp">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="header" value="/jsp/common/header.jsp"></put-attribute>
+		<put-attribute name="menu" value="/jsp/common/admin-menu.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="footer" value="/jsp/common/footer.jsp"></put-attribute>
+	</definition>
+
+	<definition name="poup.definition"
+		template="/jsp/templates/poup-template.jsp">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="header" value=""></put-attribute>
+		<put-attribute name="menu" value=""></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="footer" value=""></put-attribute>
+	</definition>
+
+	<definition name="employer-view" extends="poup.definition">
+		<put-attribute name="title" value="view"></put-attribute>
+		<put-attribute name="body" value="/jsp/employee/employer-view.jsp"></put-attribute>
+	</definition>
+
+	<definition name="employer-description"
+		extends="poup.definition">
+		<put-attribute name="title" value="view"></put-attribute>
+		<put-attribute name="body" value="/employer-view.jsp"></put-attribute>
+	</definition>
+
+	<definition name="index" extends="home.definition">
+		<put-attribute name="title" value="Employee Data Form"></put-attribute>
+		<put-attribute name="body" value="/jsp/common/admin-sign-in.jsp"></put-attribute>
+	</definition>
+
+	<definition name="admin-sign-in" extends="login.definition">
+		<put-attribute name="title" value="Admin Login"></put-attribute>
+		<put-attribute name="body" value="/jsp/common/admin-sign-in.jsp"></put-attribute>
+	</definition>	
+
+	<!--Employee -->
+	<definition name="create-employees"
+		extends="admin.definition">
+		<put-attribute name="title" value="employees"></put-attribute>
+		<put-attribute name="body" value="/jsp/employee/create-employees.jsp"></put-attribute>
+	</definition>
+
+	<definition name="view-employees" extends="admin.definition">
+		<put-attribute name="title" value="employees"></put-attribute>
+		<put-attribute name="body" value="/jsp/employee/view-employees.jsp"></put-attribute>
+	</definition>
+
+	<definition name="edit-employees" extends="admin.definition">
+		<put-attribute name="title" value="employees"></put-attribute>
+		<put-attribute name="body" value="/jsp/employee/edit-employees.jsp"></put-attribute>
+	</definition>
+
+	<definition name="verified-access-records"
+		extends="admin.definition">
+		<put-attribute name="title" value="user"></put-attribute>
+		<put-attribute name="body"
+			value="/verified-access-records.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="admin-home" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/common/admin-home.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="create-privileges" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/rolemanagement/create-privileges.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="view-privileges" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/rolemanagement/view-privileges.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="edit-privileges" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/rolemanagement/edit-privileges.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="role-privileges" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/rolemanagement/role-privileges.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="edit-role-privileges" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/rolemanagement/edit-role-privileges.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="create-user-roles" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/rolemanagement/create-user-roles.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="edit-user-role" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/rolemanagement/edit-user-role.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="create-access" extends="admin.definition">
+		<put-attribute name="title" value="create-access"></put-attribute>
+		<put-attribute name="body" value="/jsp/rolemanagement/create-access.jsp"></put-attribute>
+	</definition>
+	<definition name="view-access" extends="admin.definition">
+		<put-attribute name="title" value="view-access"></put-attribute>
+		<put-attribute name="body" value="/jsp/rolemanagement/view-access.jsp"></put-attribute>
+	</definition>
+
+		<definition name="edit-access" extends="admin.definition">
+		<put-attribute name="title" value="edit-access"></put-attribute>
+		<put-attribute name="body" value="/jsp/rolemanagement/edit-access.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="create-role" extends="admin.definition">
+		<put-attribute name="title" value="create-role"></put-attribute>
+		<put-attribute name="body" value="/jsp/rolemanagement/create-role.jsp"></put-attribute>
+	</definition>
+	
+		<definition name="view-role" extends="admin.definition">
+		<put-attribute name="title" value="view-role"></put-attribute>
+		<put-attribute name="body" value="/jsp/rolemanagement/view-role.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="edit-role" extends="admin.definition">
+		<put-attribute name="title" value="edit-role"></put-attribute>
+		<put-attribute name="body" value="/jsp/rolemanagement/edit-role.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="create-privilege-access" extends="admin.definition">
+		<put-attribute name="title" value="create-privilege-access"></put-attribute>
+		<put-attribute name="body" value="/jsp/rolemanagement/create-privilege-access.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="view-privilege-access" extends="admin.definition">
+		<put-attribute name="title" value="view-privilege-access"></put-attribute>
+		<put-attribute name="body" value="/jsp/rolemanagement/view-privilege-access.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="edit-privilege-access" extends="admin.definition">
+		<put-attribute name="title" value="edit-privilege-access"></put-attribute>
+		<put-attribute name="body" value="/jsp/rolemanagement/edit-privilege-access.jsp"></put-attribute>
+	</definition>
+	
+</tiles-definitions> 
