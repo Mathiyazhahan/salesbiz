@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @ComponentScan({ "com.softtwig.crm.config" })
-@PropertySource(value = { "classpath:mysales.properties" })
+@PropertySource(value = { "classpath:salesbiz.properties" })
 public class HibernateConfiguration {
 
     @Autowired
