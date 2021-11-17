@@ -1,0 +1,7 @@
+1.https://git-codecommit.us-east-1.amazonaws.com/v1/repos/salesbiz
+2.User Name : salesbiz-at-830584936824  /  Password : +5iOscw6X4OsT09rDs8T2wN7OBi83m7XrI3MlTlnHzI=
+3.import into your workspace
+4.create database schema "salebiz"
+5.Hibernate will create the tables automatically
+6.populate data scripts in salesbiz-config-data.sql under resource folder
+7.try to login using salesbiz@softtwig.com/admin
