@@ -12,10 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 
-/**
- * @author User
- *
- */
 @Entity
 @Table(name="email_management")
 public class EmailAccess extends BaseEntity {

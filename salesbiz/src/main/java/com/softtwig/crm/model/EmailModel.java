@@ -1,304 +1,207 @@
-/**
- * 
- */
 package com.softtwig.crm.model;
 
-/**
- * @author User
- *
- */
+import java.util.Date;
+
 public class EmailModel {
 	private String firstname;
 	private String email;
 	private String url;
-	private String webSite;
-	private long phoneno;
+	private Date date;
+	private String Designation;
 	private String message;
 	private String subject;
 	private String details;
-	private String area;
-	private String jobUrl;
-	private long companyId;
+	private String description;
+	private String startDate;
+	private String endDate;
+	private String taskname;
+	private String managerName;
+	private String	from_date; 
+	private String	to_date;
+	private int	days;  
+	private String	reason;
+	public String getFrom_date() {
+		return from_date;
+	}
+	public void setFrom_date(String from_date) {
+		this.from_date = from_date;
+	}
+	public String getTo_date() {
+		return to_date;
+	}
+	public void setTo_date(String to_date) {
+		this.to_date = to_date;
+	}
+	public int getDays() {
+		return days;
+	}
+	public void setDays(int days) {
+		this.days = days;
+	}
+	public String getReason() {
+		return reason;
+	}
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
+	private String fromDate;
+	private String toDate;
+	private String numberOfDays;
+	private String leavestatus;
 	
-	private String companyName;
-	private String jobtitle;
+		public String getFromDate() {
+		return fromDate;
+	}
+	public void setFromDate(String fromDate) {
+		this.fromDate = fromDate;
+	}
+	public String getToDate() {
+		return toDate;
+	}
+	public void setToDate(String toDate) {
+		this.toDate = toDate;
+	}
+	public String getNumberOfDays() {
+		return numberOfDays;
+	}
+	public void setNumberOfDays(String numberOfDays) {
+		this.numberOfDays = numberOfDays;
+	}
+	
+	public String getManagerName() {
+		return managerName;
+	}
+	public void setManagerName(String managerName) {
+		this.managerName = managerName;
+	}
+	private String projectName;
+	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+	public String getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+	public String getTaskname() {
+		return taskname;
+	}
+	public void setTaskname(String taskname) {
+		this.taskname = taskname;
+	}
+	public String getProjectName() {
+		return projectName;
+	}
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+	}
+	public long getMobile() {
+		return mobile;
+	}
+	public void setMobile(long mobile) {
+		this.mobile = mobile;
+	}
 	private String contactEmail;
-	private long salary;
-	private String preferedlocation;
-	private String alertName;
-	private String jobType;
-	private String role;
-	private String experienceInYear;
-	private String preferredIndustry;
-	private String keySkills;
 	private String emailId;
+	private int employerId;
+	private String declineUrl;
+	private long mobile;
+	private String gender;
 	
-	
-	
-	/**
-	 * @return the message
-	 */
-	public String getMessage() {
-		return message;
-	}
-	/**
-	 * @param message the message to set
-	 */
-	public void setMessage(String message) {
-		this.message = message;
-	}
-	/**
-	 * @return the subject
-	 */
-	public String getSubject() {
-		return subject;
-	}
-	/**
-	 * @param subject the subject to set
-	 */
-	public void setSubject(String subject) {
-		this.subject = subject;
-	}
-	/**
-	 * @return the details
-	 */
-	public String getDetails() {
-		return details;
-	}
-	/**
-	 * @param details the details to set
-	 */
-	public void setDetails(String details) {
-		this.details = details;
-	}
-	/**
-	 * @return the area
-	 */
-	public String getArea() {
-		return area;
-	}
-	/**
-	 * @param area the area to set
-	 */
-	public void setArea(String area) {
-		this.area = area;
-	}
-	/**
-	 * @return the url
-	 */
-	public String getUrl() {
-		return url;
-	}
-	/**
-	 * @param url the url to set
-	 */
-	public void setUrl(String url) {
-		this.url = url;
-	}
-	/**
-	 * @return the firstname
-	 */
 	public String getFirstname() {
 		return firstname;
 	}
-	/**
-	 * @param firstname the firstname to set
-	 */
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
 	}
-	/**
-	 * @return the email
-	 */
 	public String getEmail() {
 		return email;
 	}
-	/**
-	 * @param email the email to set
-	 */
 	public void setEmail(String email) {
 		this.email = email;
-		
 	}
-	/**
-	 * @return the webSite
-	 */
-	public String getWebSite() {
-		return webSite;
+	public String getUrl() {
+		return url;
 	}
-	/**
-	 * @param webSite the webSite to set
-	 */
-	public void setWebSite(String webSite) {
-		this.webSite = webSite;
+	public void setUrl(String url) {
+		this.url = url;
 	}
-	/**
-	 * @return the phoneno
-	 */
-	public long getPhoneno() {
-		return phoneno;
+	public String getMessage() {
+		return message;
 	}
-	/**
-	 * @param phoneno the phoneno to set
-	 */
-	public void setPhoneno(long phoneno) {
-		this.phoneno = phoneno;
+	public void setMessage(String message) {
+		this.message = message;
 	}
-	/**
-	 * @return the companyName
-	 */
-	public String getCompanyName() {
-		return companyName;
+	public String getSubject() {
+		return subject;
 	}
-	/**
-	 * @param companyName the companyName to set
-	 */
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
+	public void setSubject(String subject) {
+		this.subject = subject;
 	}
-	/**
-	 * @return the jobtitle
-	 */
-	public String getJobtitle() {
-		return jobtitle;
+	public String getDetails() {
+		return details;
 	}
-	/**
-	 * @param jobtitle the jobtitle to set
-	 */
-	public void setJobtitle(String jobtitle) {
-		this.jobtitle = jobtitle;
+	public void setDetails(String details) {
+		this.details = details;
 	}
-	/**
-	 * @return the contactEmail
-	 */
 	public String getContactEmail() {
 		return contactEmail;
 	}
-	/**
-	 * @param contactEmail the contactEmail to set
-	 */
 	public void setContactEmail(String contactEmail) {
 		this.contactEmail = contactEmail;
 	}
-	/**
-	 * @return the salary
-	 */
-	public long getSalary() {
-		return salary;
-	}
-	/**
-	 * @param salary the salary to set
-	 */
-	public void setSalary(long salary) {
-		this.salary = salary;
-	}
-	/**
-	 * @return the preferedlocation
-	 */
-	public String getPreferedlocation() {
-		return preferedlocation;
-	}
-	/**
-	 * @param preferedlocation the preferedlocation to set
-	 */
-	public void setPreferedlocation(String preferedlocation) {
-		this.preferedlocation = preferedlocation;
-	}
-	/**
-	 * @return the alertName
-	 */
-	public String getAlertName() {
-		return alertName;
-	}
-	/**
-	 * @param alertName the alertName to set
-	 */
-	public void setAlertName(String alertName) {
-		this.alertName = alertName;
-	}
-	/**
-	 * @return the jobType
-	 */
-	public String getJobType() {
-		return jobType;
-	}
-	/**
-	 * @param jobType the jobType to set
-	 */
-	public void setJobType(String jobType) {
-		this.jobType = jobType;
-	}
-	/**
-	 * @return the role
-	 */
-	public String getRole() {
-		return role;
-	}
-	/**
-	 * @param role the role to set
-	 */
-	public void setRole(String role) {
-		this.role = role;
-	}
-	/**
-	 * @return the experienceInYear
-	 */
-	public String getExperienceInYear() {
-		return experienceInYear;
-	}
-	/**
-	 * @param experienceInYear the experienceInYear to set
-	 */
-	public void setExperienceInYear(String experienceInYear) {
-		this.experienceInYear = experienceInYear;
-	}
-	/**
-	 * @return the preferredIndustry
-	 */
-	public String getPreferredIndustry() {
-		return preferredIndustry;
-	}
-	/**
-	 * @param preferredIndustry the preferredIndustry to set
-	 */
-	public void setPreferredIndustry(String preferredIndustry) {
-		this.preferredIndustry = preferredIndustry;
-	}
-	/**
-	 * @return the keySkills
-	 */
-	public String getKeySkills() {
-		return keySkills;
-	}
-	/**
-	 * @param keySkills the keySkills to set
-	 */
-	public void setKeySkills(String keySkills) {
-		this.keySkills = keySkills;
-	}
-	/**
-	 * @return the emailId
-	 */
 	public String getEmailId() {
 		return emailId;
 	}
-	/**
-	 * @param emailId the emailId to set
-	 */
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
-	public String getJobUrl() {
-		return jobUrl;
+	public Date getDate() {
+		return date;
 	}
-	public void setJobUrl(String jobUrl) {
-		this.jobUrl = jobUrl;
+	public void setDate(Date date) {
+		this.date = date;
 	}
-	public long getCompanyId() {
-		return companyId;
+	public String getDesignation() {
+		return Designation;
 	}
-	public void setCompanyId(long companyId) {
-		this.companyId = companyId;
+	public void setDesignation(String designation) {
+		Designation = designation;
+	}
+	public int getEmployerId() {
+		return employerId;
+	}
+	public void setEmployerId(int employerId) {
+		this.employerId = employerId;
+	}
+	public String getDeclineUrl() {
+		return declineUrl;
+	}
+	public void setDeclineUrl(String declineUrl) {
+		this.declineUrl = declineUrl;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public String getLeavestatus() {
+		return leavestatus;
+	}
+	public void setLeavestatus(String leavestatus) {
+		this.leavestatus = leavestatus;
 	}
 	
 	

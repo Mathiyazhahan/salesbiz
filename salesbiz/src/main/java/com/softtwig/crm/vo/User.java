@@ -17,10 +17,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
-/**
- * @author User
- *
- */
+
 
 @Entity
 @Table(name = "login")
