@@ -1,5 +1,5 @@
 INSERT INTO `login` (`id`,`created`,`createdBy`,`modified`,`modifiedBy`,`version`,`confirmpassword`,`email_Id`,`isActive`,`isDelete`,`mobileno`,`name`,`password`) VALUES
- (1,'2021-11-07 05:33:52',0,'2021-11-07 05:33:52',0,0,'8sbMBUhbt42n1zMl4xQewEc6RBM1ib0qxeAq+/FP8+uvZt1pM/RTQBBILhKN1fI5','mysales@softtwig.com',1,0,'9884720323','selva','8sbMBUhbt42n1zMl4xQewEc6RBM1ib0qxeAq+/FP8+uvZt1pM/RTQBBILhKN1fI5');
+ (1,'2021-11-07 05:33:52',0,'2021-11-07 05:33:52',0,0,'8sbMBUhbt42n1zMl4xQewEc6RBM1ib0qxeAq+/FP8+uvZt1pM/RTQBBILhKN1fI5','salesbiz@softtwig.com',1,0,'9884720323','selva','8sbMBUhbt42n1zMl4xQewEc6RBM1ib0qxeAq+/FP8+uvZt1pM/RTQBBILhKN1fI5');
 
 
 INSERT INTO `roles` (`roleId`,`created`,`createdBy`,`modified`,`modifiedBy`,`version`,`isActive`,`privilegesVo`,`roleName`) VALUES
