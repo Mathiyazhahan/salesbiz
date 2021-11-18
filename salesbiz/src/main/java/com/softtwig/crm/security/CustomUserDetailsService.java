@@ -72,7 +72,8 @@ public class CustomUserDetailsService implements UserDetailsService{
 
 	
 	private String getPwd(String pwd) throws Exception {
-		String decrypted=EncryptAndDecrypt.decrypt(pwd);
+		String Encrypted=EncryptAndDecrypt.encrypt(pwd);
+		String decrypted=EncryptAndDecrypt.decrypt(Encrypted);
 		System.out.println(decrypted);
 		return passwordEncoder().encode(decrypted);
 	}
