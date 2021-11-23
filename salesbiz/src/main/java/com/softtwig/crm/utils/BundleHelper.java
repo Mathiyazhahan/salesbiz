@@ -5,10 +5,10 @@ import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-import com.softtwig.crm.exception.MySalesLogger;
+import com.softtwig.crm.exception.SalesBizLogger;
 
 public class BundleHelper {
-	private static final MySalesLogger LOGGER = MySalesLogger.getLogger(BundleHelper.class);
+	private static final SalesBizLogger LOGGER = SalesBizLogger.getLogger(BundleHelper.class);
 
 	public static final String resolve(Class<?> resolver, String key) {
 		String bundleName = "Bundle";

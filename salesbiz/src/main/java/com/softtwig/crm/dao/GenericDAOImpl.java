@@ -12,8 +12,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
-import com.softtwig.crm.exception.MySalesException;
-import com.softtwig.crm.exception.MySalesLogger;
+import com.softtwig.crm.exception.SalesBizException;
+import com.softtwig.crm.exception.SalesBizLogger;
 import com.softtwig.crm.service.GenericService;
 import com.softtwig.crm.utils.ErrorCodes;
 import com.softtwig.crm.vo.BaseEntity;
@@ -28,7 +28,7 @@ import com.softtwig.crm.vo.BaseEntity;
 public abstract class GenericDAOImpl<T extends BaseEntity> implements
 		GenericDAO<T> {
 
-	private static final MySalesLogger LOGGER = MySalesLogger
+	private static final SalesBizLogger LOGGER = SalesBizLogger
 			.getLogger(GenericDAOImpl.class);
 
 	protected abstract GenericService<T> getBasicService();
@@ -48,7 +48,7 @@ public abstract class GenericDAOImpl<T extends BaseEntity> implements
 	
 
 	@SuppressWarnings("unchecked")
-	public GenericDAOImpl() throws MySalesException {
+	public GenericDAOImpl() throws SalesBizException {
 		this.tClass = (Class<BaseEntity>) new com.softtwig.crm.utils.GenericTypeResolver<T>()
 				.resolveGenericType(this.getClass());
 	}
@@ -62,7 +62,7 @@ public abstract class GenericDAOImpl<T extends BaseEntity> implements
 	 */
 
 	@Override
-	public T create(T entity) throws MySalesException {
+	public T create(T entity) throws SalesBizException {
 		GenericDAOImpl.LOGGER.entry();
 		try {
 
@@ -72,7 +72,7 @@ public abstract class GenericDAOImpl<T extends BaseEntity> implements
 			if (GenericDAOImpl.LOGGER.isDebugEnabled()) {
 				GenericDAOImpl.LOGGER.debug(ErrorCodes.ENTITY_CRE_FAIL + he);
 			}
-			throw new MySalesException(ErrorCodes.ENTITY_CRE_FAIL,
+			throw new SalesBizException(ErrorCodes.ENTITY_CRE_FAIL,
 					ErrorCodes.ENTITY_CRE_FAIL_MSG);
 		} finally {
 			
@@ -84,12 +84,12 @@ public abstract class GenericDAOImpl<T extends BaseEntity> implements
 	}
 
 	@Override
-	public void create(List<T> list) throws MySalesException {
+	public void create(List<T> list) throws SalesBizException {
 
 	
 		if (null == list) {
 			// log.error("list must not be null");
-			throw new MySalesException("Input Parametrs Cannot be Empty");
+			throw new SalesBizException("Input Parametrs Cannot be Empty");
 		}
 		int i = 0;
 		for (final T entity : list) {
@@ -104,7 +104,7 @@ public abstract class GenericDAOImpl<T extends BaseEntity> implements
 					GenericDAOImpl.LOGGER
 							.debug(ErrorCodes.ENTITY_CRE_FAIL + he);
 				}
-				throw new MySalesException(ErrorCodes.ENTITY_CRE_FAIL,
+				throw new SalesBizException(ErrorCodes.ENTITY_CRE_FAIL,
 						ErrorCodes.ENTITY_CRE_FAIL_MSG);
 			} finally {
 				
@@ -116,7 +116,7 @@ public abstract class GenericDAOImpl<T extends BaseEntity> implements
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public void delete(Long id) throws MySalesException {
+	public void delete(Long id) throws SalesBizException {
 
 		try {
 			
@@ -129,12 +129,12 @@ public abstract class GenericDAOImpl<T extends BaseEntity> implements
 
 	}
 
-	public void delete(List<T> list) throws MySalesException {
+	public void delete(List<T> list) throws SalesBizException {
 
 		
 		if (null == list) {
 			// log.error("list must not be null");
-			throw new MySalesException("Input Parametrs Cannot be Empty");
+			throw new SalesBizException("Input Parametrs Cannot be Empty");
 		}
 		int i = 0;
 		for (final T to : list) {
@@ -146,21 +146,21 @@ public abstract class GenericDAOImpl<T extends BaseEntity> implements
 				}
 			} catch (final IllegalArgumentException iaex) {
 				// log.error(iaex.getMessage(), iaex);
-				throw new MySalesException(" aruguments are not valid!");
+				throw new SalesBizException(" aruguments are not valid!");
 			} catch (final Throwable t) {
 				// log.error(t.getMessage(), t);
-				throw new MySalesException(" aruguments are not valid!");
+				throw new SalesBizException(" aruguments are not valid!");
 			}
 		}
 
 	}
 
 	@Override
-	public void update(T entity) throws MySalesException {
+	public void update(T entity) throws SalesBizException {
 
 		if (entity == null) {
 			// log.error("entity must not be null");
-			throw new MySalesException("Input Parameters Cannot be Empty ");
+			throw new SalesBizException("Input Parameters Cannot be Empty ");
 		}
 		
 		getSession().update(entity);
@@ -168,12 +168,12 @@ public abstract class GenericDAOImpl<T extends BaseEntity> implements
 	}
 
 	@Override
-	public void update(List<T> list) throws MySalesException {
+	public void update(List<T> list) throws SalesBizException {
 
 	
 		if (null == list) {
 			// log.error("list must not be null");
-			throw new MySalesException("Input Parametrs Cannot be Empty");
+			throw new SalesBizException("Input Parametrs Cannot be Empty");
 		}
 		int i = 0;
 		for (final T to : list) {
@@ -185,10 +185,10 @@ public abstract class GenericDAOImpl<T extends BaseEntity> implements
 				}
 			} catch (final IllegalArgumentException iaex) {
 				// log.error(iaex.getMessage(), iaex);
-				throw new MySalesException(" aruguments are not valid!");
+				throw new SalesBizException(" aruguments are not valid!");
 			} catch (final Throwable t) {
 				// log.error(t.getMessage(), t);
-				throw new MySalesException(" aruguments are not valid!");
+				throw new SalesBizException(" aruguments are not valid!");
 			}
 
 		}
@@ -198,7 +198,7 @@ public abstract class GenericDAOImpl<T extends BaseEntity> implements
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> findByDate(Date fDate, Date tDate)
-			throws MySalesException {
+			throws SalesBizException {
 
 		
 		final Criteria cr = getSession().createCriteria(this.tClass);
@@ -209,7 +209,7 @@ public abstract class GenericDAOImpl<T extends BaseEntity> implements
 	}
 
 	@Override
-	public T findById(Long id) throws MySalesException {
+	public T findById(Long id) throws SalesBizException {
 
 		
 		@SuppressWarnings("unchecked")
@@ -221,7 +221,7 @@ public abstract class GenericDAOImpl<T extends BaseEntity> implements
 	@SuppressWarnings({ "unchecked", "unused" })
 	@Override
 	public T findByParam(String entityParam, String entityParamValue)
-			throws MySalesException {
+			throws SalesBizException {
 		GenericDAOImpl.LOGGER.entry();
 
 		
@@ -244,21 +244,21 @@ public abstract class GenericDAOImpl<T extends BaseEntity> implements
 			if (GenericDAOImpl.LOGGER.isDebugEnabled()) {
 				GenericDAOImpl.LOGGER.debug(ErrorCodes.LOGIN_FAIL + iaex);
 			}
-			throw new MySalesException(ErrorCodes.LOGIN_FAIL,
+			throw new SalesBizException(ErrorCodes.LOGIN_FAIL,
 					ErrorCodes.LOGIN_FAIL_MSG);
 		} catch (final HibernateException he) {
 			he.printStackTrace();
 			if (GenericDAOImpl.LOGGER.isDebugEnabled()) {
 				GenericDAOImpl.LOGGER.debug(ErrorCodes.LOGIN_FAIL + he);
 			}
-			throw new MySalesException(ErrorCodes.LOGIN_FAIL,
+			throw new SalesBizException(ErrorCodes.LOGIN_FAIL,
 					ErrorCodes.LOGIN_FAIL_MSG);
 		} catch (final Exception e) {
 			e.printStackTrace();
 			if (GenericDAOImpl.LOGGER.isDebugEnabled()) {
 				GenericDAOImpl.LOGGER.debug(ErrorCodes.LOGIN_FAIL + e);
 			}
-			throw new MySalesException(ErrorCodes.LOGIN_FAIL,
+			throw new SalesBizException(ErrorCodes.LOGIN_FAIL,
 					ErrorCodes.LOGIN_FAIL_MSG);
 		}
 		GenericDAOImpl.LOGGER.exit();
@@ -267,7 +267,7 @@ public abstract class GenericDAOImpl<T extends BaseEntity> implements
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<T> retrieveAll() throws MySalesException {		
+	public List<T> retrieveAll() throws SalesBizException {		
 		final Criteria cr = getSession().createCriteria(this.tClass);
 		cr.add(Restrictions.eq("isActive", true));
 		final List<T> ul = cr.list();

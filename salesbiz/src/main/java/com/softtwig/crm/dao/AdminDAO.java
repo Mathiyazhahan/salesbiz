@@ -6,7 +6,7 @@ import com.softtwig.crm.bo.AdminLoginBO;
 import com.softtwig.crm.bo.AdminUserBO;
 import com.softtwig.crm.bo.PrivilegesBO;
 import com.softtwig.crm.bo.RoleBO;
-import com.softtwig.crm.exception.MySalesException;
+import com.softtwig.crm.exception.SalesBizException;
 import com.softtwig.crm.vo.AccessLogVO;
 import com.softtwig.crm.vo.AccessVo;
 import com.softtwig.crm.vo.EmailAccess;
@@ -23,9 +23,9 @@ import com.softtwig.crm.vo.User;
  */
 public interface AdminDAO {
 
-	User authendicate(String string, String emailAddress) throws MySalesException;
+	User authendicate(String string, String emailAddress) throws SalesBizException;
 
-	User authendicate(String emailAddress) throws MySalesException;
+	User authendicate(String emailAddress) throws SalesBizException;
 	
 	LoginStatusVO editLoginStatus(LoginStatusVO loginStatusVO);
 	
@@ -33,19 +33,19 @@ public interface AdminDAO {
 	
 	 public boolean createAccessLog(AccessLogVO logVO);
 
-	 long createuser(User adminVO) throws MySalesException;
+	 long createuser(User adminVO) throws SalesBizException;
 	 
 	 AdminUserBO retrieveusers(long userId);
 	 
-	 List<AdminUserBO> retrieveUser()throws MySalesException;
+	 List<AdminUserBO> retrieveUser()throws SalesBizException;
 	 
-	 User userStatus(User userVO)throws MySalesException;
+	 User userStatus(User userVO)throws SalesBizException;
 	 
-	 User deleteProfile(User vo)throws MySalesException;
+	 User deleteProfile(User vo)throws SalesBizException;
 	 
-	 User getuserId(AdminUserBO adminBO) throws MySalesException;
+	 User getuserId(AdminUserBO adminBO) throws SalesBizException;
 	 
-	 User updateuser(User loginVO) throws MySalesException;
+	 User updateuser(User loginVO) throws SalesBizException;
 	 
 	 User findByEmail(String string, String emailAddress);
 	 
