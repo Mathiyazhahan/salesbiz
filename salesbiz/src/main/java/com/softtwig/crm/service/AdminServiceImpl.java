@@ -527,7 +527,7 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public AdminUserBO retriveUserByName(AdminUserBO bo) {
+	public AdminUserBO retriveUserByName(AdminUserBO bo) throws Exception {
 		User user = new User();
 		user.setName(bo.getName());
 		user=adminDAO.retriveUserByname(user);
@@ -535,9 +535,9 @@ public class AdminServiceImpl implements AdminService {
 		userbo.setId(user.getId());
 		userbo.setName(user.getName());
 		userbo.setMobileNo(user.getMobileNo());
-		userbo.setPassword(user.getPassword());
+		userbo.setPassword(EncryptAndDecrypt.decrypt(user.getPassword()));
 		userbo.setEmailAddress(user.getEmailAddress());
-		userbo.setConfirmPassword(user.getConfirmpassword());
+		userbo.setConfirmPassword(EncryptAndDecrypt.decrypt(user.getConfirmpassword()));
 		return userbo;
 	}
 

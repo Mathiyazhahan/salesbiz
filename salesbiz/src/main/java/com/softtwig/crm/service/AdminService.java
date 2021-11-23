@@ -71,7 +71,7 @@ public interface AdminService {
 
 	List<AdminUserBO> retrieveUser(List<AdminUserBO> listUserBo);
 	
-	AdminUserBO retriveUserByName(AdminUserBO bo);
+	AdminUserBO retriveUserByName(AdminUserBO bo) throws Exception;
 
 	RoleBO getPrivilegesbyId(RoleBO rolebo);
 
