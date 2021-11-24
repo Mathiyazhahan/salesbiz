@@ -84,6 +84,11 @@ public class ContactDO implements Serializable{
 	private String role;
 	private String groupBy;
 	
+	//Added Recently
+	
+	private String assignedTo;
+	private String officePhone;
+
 	/**
 	 * @return the accountId
 	 */
@@ -875,4 +880,26 @@ public class ContactDO implements Serializable{
 	public void setGroupBy(String groupBy) {
 		this.groupBy = groupBy;
 	}
+	
+
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	@Column(name = "ASSIGNED_TO" , unique = false, nullable = true)
+	public String getAssignedTo() {
+		return assignedTo;
+	}
+	public void setAssignedTo(String assignedTo) {
+		this.assignedTo = assignedTo;
+	}
+	
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	@Column(name = "OFFICE_PHONE", unique = false, nullable = true)
+	public String getOfficePhone() {
+		return officePhone;
+	}
+	public void setOfficePhone(String officePhone) {
+		this.officePhone = officePhone;
+	}
+	
+	
+	
 }
