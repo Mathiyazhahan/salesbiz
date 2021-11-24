@@ -4,13 +4,13 @@ import java.util.Locale;
 
 import com.softtwig.crm.utils.BundleHelper;
 
-public class MySalesException extends java.lang.Exception {
+public class SalesBizException extends java.lang.Exception {
 
 	private static final long serialVersionUID = 1L;
 
 	public static final String DEFAULT_RESOURCE_BUNDLE_NAME = "/com/jobtrolley/resources/jobtrolley-messages";
 
-	private String bundleName = MySalesException.DEFAULT_RESOURCE_BUNDLE_NAME;
+	private String bundleName = SalesBizException.DEFAULT_RESOURCE_BUNDLE_NAME;
 	private String key;
 	private Object[] parameters;
 	private String errorCode;
@@ -31,7 +31,7 @@ public class MySalesException extends java.lang.Exception {
 	 *            message, resolved from the resource key; the array can be
 	 *            null, if no parameters are used
 	 */
-	public MySalesException(String msg, String resourcekey,
+	public SalesBizException(String msg, String resourcekey,
 			Object[] parameters) {
 		super(msg);
 		this.key = resourcekey;
@@ -44,7 +44,7 @@ public class MySalesException extends java.lang.Exception {
 	 * @param ErrorMessage
 	 */
 
-	public MySalesException(String errorCode, String errorMessage) {
+	public SalesBizException(String errorCode, String errorMessage) {
 
 		this.errorCode = errorCode;
 		this.errorMessage = errorMessage;
@@ -63,7 +63,7 @@ public class MySalesException extends java.lang.Exception {
 	 *            message, resolved from the resource key; the array can be
 	 *            null, if no parameters are used
 	 */
-	public MySalesException(Throwable t, String resourcekey,
+	public SalesBizException(Throwable t, String resourcekey,
 			Object[] parameters) {
 		super(t);
 		this.key = resourcekey;
@@ -84,7 +84,7 @@ public class MySalesException extends java.lang.Exception {
 	 *            null, if no parameters are used
 	 * @param bundleName
 	 */
-	public MySalesException(String msg, String resourcekey,
+	public SalesBizException(String msg, String resourcekey,
 			Object[] parameters, String bundleName) {
 		super(msg);
 		this.key = resourcekey;
@@ -106,7 +106,7 @@ public class MySalesException extends java.lang.Exception {
 	 *            null, if no parameters are used
 	 * @param bundleName
 	 */
-	public MySalesException(Throwable t, String resourcekey,
+	public SalesBizException(Throwable t, String resourcekey,
 			Object[] parameters, String bundleName) {
 		super(t);
 		this.key = resourcekey;
@@ -114,17 +114,17 @@ public class MySalesException extends java.lang.Exception {
 		this.bundleName = bundleName;
 	}
 
-	public MySalesException() {
+	public SalesBizException() {
 
 	}
 
-	public MySalesException(String message, String key, Object[] parameters,
+	public SalesBizException(String message, String key, Object[] parameters,
 			Class<?> bundleResolver) {
 		this(message, key, parameters);
 		this.setBundleResolver(bundleResolver);
 	}
 
-	public MySalesException(String string) {
+	public SalesBizException(String string) {
 		// TODO Auto-generated constructor stub
 	}
 

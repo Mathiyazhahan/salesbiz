@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.softtwig.crm.bo.AdminUserBO;
 import com.softtwig.crm.bo.RoleBO;
-import com.softtwig.crm.exception.MySalesException;
+import com.softtwig.crm.exception.SalesBizException;
 import com.softtwig.crm.service.AdminService;
 import com.softtwig.crm.service.RoleTypeService;
 import com.softtwig.crm.service.UserRoleService;
@@ -32,7 +32,7 @@ public class UserRolesController {
 	
 	
 	@RequestMapping(value="/create-user-roles",method=RequestMethod.GET)
-	public String createUserRoles(Model model ,HttpServletRequest request) throws MySalesException{
+	public String createUserRoles(Model model ,HttpServletRequest request) throws SalesBizException{
 		AdminUserBO userrolebo = new AdminUserBO();
 		getUser(model, request);
 		getuserroles(model,request);
@@ -72,7 +72,7 @@ public class UserRolesController {
 	}
 	
 	@RequestMapping(value="/edit-user-role",method=RequestMethod.GET)
-	public String updateUserRole(Model model,HttpServletRequest request) throws MySalesException{
+	public String updateUserRole(Model model,HttpServletRequest request) throws SalesBizException{
 		
 		getUser(model, request);
 		getuserroles(model,request);
@@ -145,7 +145,7 @@ public class UserRolesController {
 			if(null!=listuser&&listuser.size()>0){
 				model.addAttribute("listuser", listuser);
 			}
-		} catch (MySalesException e) {
+		} catch (SalesBizException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

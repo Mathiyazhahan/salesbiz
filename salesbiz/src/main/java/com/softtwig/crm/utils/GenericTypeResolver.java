@@ -3,7 +3,7 @@ package com.softtwig.crm.utils;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
-import com.softtwig.crm.exception.MySalesException;
+import com.softtwig.crm.exception.SalesBizException;
 
 public final class GenericTypeResolver<T> {
 	/**
@@ -18,7 +18,7 @@ public final class GenericTypeResolver<T> {
 	 */
 
 	public Class<T> resolveGenericType(Class<?> clazz)
-			throws MySalesException {
+			throws SalesBizException {
 		Class<T> ret = null;
 		Type[] types;
 		Class<?>[] clazzes;
@@ -47,7 +47,7 @@ public final class GenericTypeResolver<T> {
 			}
 		}
 
-		throw new MySalesException("Can't resolve Type");
+		throw new SalesBizException("Can't resolve Type");
 
 	}
 

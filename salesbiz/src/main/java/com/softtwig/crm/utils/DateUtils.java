@@ -14,8 +14,8 @@ import org.apache.commons.beanutils.ConversionException;
 import org.apache.commons.lang.time.FastDateFormat;
 import org.hibernate.Session;
 
-import com.softtwig.crm.exception.MySalesException;
-import com.softtwig.crm.exception.MySalesLogger;
+import com.softtwig.crm.exception.SalesBizException;
+import com.softtwig.crm.exception.SalesBizLogger;
 
 /**
  * @author shiju.kurikesu
@@ -25,7 +25,7 @@ public class DateUtils {
 
     /** The logger. */
 	
-	private static final MySalesLogger LOGGER = MySalesLogger
+	private static final SalesBizLogger LOGGER = SalesBizLogger
 			.getLogger(DateUtils.class);
 	
 //    private static Logger logger = LoggerFactory.getLogger(DateUtils.class);
@@ -500,9 +500,9 @@ public class DateUtils {
      * @return the eOD period
      * @throws MySalesException 
      */
-    public static String getEODPeriod(Date postDate) throws MySalesException {
+    public static String getEODPeriod(Date postDate) throws SalesBizException {
         if (postDate == null) {
-            throw new MySalesException("Date passed to getEODPeriod is null");
+            throw new SalesBizException("Date passed to getEODPeriod is null");
         }
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(postDate);
@@ -535,32 +535,32 @@ public class DateUtils {
      * @return the cYYMMDD
      * @throws MySalesException 
      */
-    public static Long getCYYMMDD(Date date) throws MySalesException {
+    public static Long getCYYMMDD(Date date) throws SalesBizException {
         if (date == null) {
-            throw new MySalesException("Date passed to getCYYMMDD is null");
+            throw new SalesBizException("Date passed to getCYYMMDD is null");
         }
         SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd");
         String dateStr = null;
         try {
             dateStr = sdf.format(date);
         } catch (Exception e) {
-            throw new MySalesException("Error while converting date: "
+            throw new SalesBizException("Error while converting date: "
                     + date + " to String");
         }
         dateStr = CENTURY_CODE + dateStr;
         return Long.valueOf(dateStr);
     }
     
-    public static String getYYYYMMDDHHMMSS(Date date) throws MySalesException {
+    public static String getYYYYMMDDHHMMSS(Date date) throws SalesBizException {
         if (date == null) {
-            throw new MySalesException("Date passed to getCYYMMDD is null");
+            throw new SalesBizException("Date passed to getCYYMMDD is null");
         }
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
         String dateStr = null;
         try {
             dateStr = sdf.format(date);
         } catch (Exception e) {
-            throw new MySalesException("Error while converting date: "
+            throw new SalesBizException("Error while converting date: "
                     + date + " to String");
         }        
         return dateStr;
@@ -600,7 +600,7 @@ public class DateUtils {
      * @throws PersistenceException the persistence exception
      */
     public static Date getSystemDate(Session session)
-            throws MySalesException {
+            throws SalesBizException {
         return (Date) session.createSQLQuery("SELECT CURR_DATE FROM SYSTEM")
                 .uniqueResult();
     }

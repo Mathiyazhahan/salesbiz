@@ -19,8 +19,8 @@ import com.softtwig.crm.bo.PrivilegesBO;
 import com.softtwig.crm.bo.RoleBO;
 import com.softtwig.crm.dao.AdminDAO;
 import com.softtwig.crm.dao.RoleTypeDao;
-import com.softtwig.crm.exception.MySalesException;
-import com.softtwig.crm.exception.MySalesLogger;
+import com.softtwig.crm.exception.SalesBizException;
+import com.softtwig.crm.exception.SalesBizLogger;
 import com.softtwig.crm.integration.SendEmailServiceImpl;
 import com.softtwig.crm.model.EmailModel;
 import com.softtwig.crm.utils.EncryptAndDecrypt;
@@ -47,7 +47,7 @@ import com.softtwig.crm.vo.User;
 @Transactional
 public class AdminServiceImpl implements AdminService {
 
-	static final MySalesLogger LOGGER = MySalesLogger.getLogger(AdminServiceImpl.class);
+	static final SalesBizLogger LOGGER = SalesBizLogger.getLogger(AdminServiceImpl.class);
 	// DAo layer annotations
 	@Autowired
 	private AdminDAO adminDAO;
@@ -68,7 +68,7 @@ public class AdminServiceImpl implements AdminService {
 
 
 	@Override
-	public AdminLoginBO authendicate(AdminLoginBO adminLoginBO) throws MySalesException {
+	public AdminLoginBO authendicate(AdminLoginBO adminLoginBO) throws SalesBizException {
 		AdminServiceImpl.LOGGER.entry();
 
 		final AdminLoginBO adminLogin = new AdminLoginBO();
@@ -109,7 +109,7 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public boolean addLoginStatus(String username) throws MySalesException {
+	public boolean addLoginStatus(String username) throws SalesBizException {
 
 		LoginStatusVO loginStatus = new LoginStatusVO();
 		loginStatus.setUserName(username);
@@ -146,7 +146,7 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public AdminUserBO createuser(AdminUserBO adminBO) throws MySalesException {
+	public AdminUserBO createuser(AdminUserBO adminBO) throws SalesBizException {
 
 		User adminVO = new User();
 		try {
@@ -172,7 +172,7 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public List<AdminUserBO> retrieveUser() throws MySalesException {
+	public List<AdminUserBO> retrieveUser() throws SalesBizException {
 		List<AdminUserBO> BOList = new ArrayList<AdminUserBO>();
 		BOList = adminDAO.retrieveUser();
 		return BOList;
@@ -241,7 +241,7 @@ public class AdminServiceImpl implements AdminService {
 
 
 	@Override
-	public boolean userStatus(AdminUserBO userBO) throws MySalesException {
+	public boolean userStatus(AdminUserBO userBO) throws SalesBizException {
 		boolean loginChanged = false;
 
 		User userVO = new User();
@@ -259,7 +259,7 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public AdminUserBO deleteProfile(AdminUserBO deleteProfile) throws MySalesException {
+	public AdminUserBO deleteProfile(AdminUserBO deleteProfile) throws SalesBizException {
 		AdminServiceImpl.LOGGER.entry();
 
 		User VO = new User();
@@ -271,7 +271,7 @@ public class AdminServiceImpl implements AdminService {
 			if (0<VO.getId()) {
 				deleteProfile.setResponse(SuccessMsg.DELETE_SUCCESS);
 			}
-		} catch (MySalesException e) {
+		} catch (SalesBizException e) {
 
 			e.printStackTrace();
 		}
@@ -280,7 +280,7 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public AdminUserBO retrieveusers(long userId) throws MySalesException {
+	public AdminUserBO retrieveusers(long userId) throws SalesBizException {
 
 		AdminUserBO adminBO = new AdminUserBO();
 
@@ -527,7 +527,7 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public AdminUserBO retriveUserByName(AdminUserBO bo) {
+	public AdminUserBO retriveUserByName(AdminUserBO bo) throws Exception {
 		User user = new User();
 		user.setName(bo.getName());
 		user=adminDAO.retriveUserByname(user);
@@ -535,9 +535,9 @@ public class AdminServiceImpl implements AdminService {
 		userbo.setId(user.getId());
 		userbo.setName(user.getName());
 		userbo.setMobileNo(user.getMobileNo());
-		userbo.setPassword(user.getPassword());
+		userbo.setPassword(EncryptAndDecrypt.decrypt(user.getPassword()));
 		userbo.setEmailAddress(user.getEmailAddress());
-		userbo.setConfirmPassword(user.getConfirmpassword());
+		userbo.setConfirmPassword(EncryptAndDecrypt.decrypt(user.getConfirmpassword()));
 		return userbo;
 	}
 
