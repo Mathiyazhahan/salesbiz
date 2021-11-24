@@ -83,7 +83,50 @@ public class AccountDO implements Serializable {
 	private Boolean isDeleted;
 	private String role;
 	private String groupBy;
+    private String parentAccount;
+	private String accountOwner;
+    private String email;
+    private int SICCode;
 
+    
+    @Column(name = "ACCOUNT_OWNER", unique = true, nullable = false)
+    public String getAccountOwner() {
+		return accountOwner;
+	}
+
+	public void setAccountOwner(String accountOwner) {
+		this.accountOwner = accountOwner;
+	}
+
+	
+	@Column(name = "E-MAIL", unique = true, nullable = false)
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	
+	@Column(name = "SIC_CODE", unique = true, nullable = false)
+	public int getSICCode() {
+		return SICCode;
+	}
+
+	public void setSICCode(int sICCode) {
+		SICCode = sICCode;
+	}
+	
+    
+    @Column(name = "PARENT_ACCOUNT", unique = true, nullable = false)
+    public String getParentAccount() {
+		return parentAccount;
+	}
+
+	public void setParentAccount(String parentAccount) {
+		this.parentAccount = parentAccount;
+	}
 
 	/**
 	 * @return the masterRecordId
