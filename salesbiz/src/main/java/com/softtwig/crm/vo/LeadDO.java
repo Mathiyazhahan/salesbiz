@@ -89,6 +89,8 @@ public class LeadDO implements Serializable {
 	private int leadOwner;
 	private String role;
 	private String team;
+	private String designation;
+	private String fax;
 	
 	
 
@@ -1071,5 +1073,21 @@ public class LeadDO implements Serializable {
 	 */
 	public void setTeam(String team) {
 		this.team = team;
+	}
+	@Column(name = "DESIGNATION", unique = false, nullable = true)
+	public String getDesignation() {
+		return designation;
+	}
+
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
+	@Column(name = "FAX", unique = false, nullable = true)
+	public String getFax() {
+		return fax;
+	}
+
+	public void setFax(String fax) {
+		this.fax = fax;
 	}
 }
