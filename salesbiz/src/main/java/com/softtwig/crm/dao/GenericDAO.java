@@ -3,7 +3,7 @@ package com.softtwig.crm.dao;
 import java.util.Date;
 import java.util.List;
 
-import com.softtwig.crm.exception.MySalesException;
+import com.softtwig.crm.exception.SalesBizException;
 
 /**
  * This class to be form an common function for this application
@@ -22,7 +22,7 @@ public interface GenericDAO<E> {
 	 * @throws MySalesException
 	 *             ;
 	 */
-	E create(E entity) throws MySalesException;
+	E create(E entity) throws SalesBizException;
 
 	/**
 	 * Create list of new entity and copies properties of given entity.
@@ -31,7 +31,7 @@ public interface GenericDAO<E> {
 	 * @throws MySalesException
 	 *             ;
 	 */
-	void create(List<E> list) throws MySalesException;
+	void create(List<E> list) throws SalesBizException;
 
 	/**
 	 * Deletes given entity from database
@@ -39,7 +39,7 @@ public interface GenericDAO<E> {
 	 * @param entity
 	 * @throws MySalesException
 	 */
-	void delete(Long id) throws MySalesException;
+	void delete(Long id) throws SalesBizException;
 
 	/**
 	 * Deletes given list of entity from database
@@ -48,7 +48,7 @@ public interface GenericDAO<E> {
 	 * @throws MySalesException
 	 *             ;
 	 */
-	void deleteAll(List<E> entityList) throws MySalesException;
+	void deleteAll(List<E> entityList) throws SalesBizException;
 
 	/**
 	 * Updates given entity to the database
@@ -56,7 +56,7 @@ public interface GenericDAO<E> {
 	 * @param entity
 	 * @throws MySalesException
 	 */
-	void update(E entity) throws MySalesException;
+	void update(E entity) throws SalesBizException;
 
 	/**
 	 * Updates given list of entity to the database
@@ -64,7 +64,7 @@ public interface GenericDAO<E> {
 	 * @param entity
 	 * @throws MySalesException
 	 */
-	void update(List<E> list) throws MySalesException;
+	void update(List<E> list) throws SalesBizException;
 
 	/**
 	 * Retrieve entity with given criteria.
@@ -74,7 +74,7 @@ public interface GenericDAO<E> {
 	 *             ;
 	 */
 
-	E findByCriteria(E entity) throws MySalesException;
+	E findByCriteria(E entity) throws SalesBizException;
 
 	/**
 	 * Retrieve entity with given name String.
@@ -85,7 +85,7 @@ public interface GenericDAO<E> {
 	 */
 
 	E findByParam(String entityParam, String entityParamValue)
-			throws MySalesException;
+			throws SalesBizException;
 
 	/**
 	 * Retrieve entity with given date.
@@ -95,7 +95,7 @@ public interface GenericDAO<E> {
 	 *             ;
 	 */
 
-	List<E> findByDate(Date fDate, Date tDate) throws MySalesException;
+	List<E> findByDate(Date fDate, Date tDate) throws SalesBizException;
 
 	/**
 	 * Retrieve entity with given id.
@@ -105,7 +105,7 @@ public interface GenericDAO<E> {
 	 *             ;
 	 */
 
-	E findById(Long id) throws MySalesException;
+	E findById(Long id) throws SalesBizException;
 
 	/**
 	 * Retrieve All entity from the database.
@@ -114,7 +114,7 @@ public interface GenericDAO<E> {
 	 * @throws MySalesException
 	 *             ;
 	 */
-	List<E> retrieveAll() throws MySalesException;
+	List<E> retrieveAll() throws SalesBizException;
 
 
 

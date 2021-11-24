@@ -21,8 +21,8 @@ import com.softtwig.crm.bo.AdminLoginBO;
 import com.softtwig.crm.bo.AdminUserBO;
 import com.softtwig.crm.bo.PrivilegesBO;
 import com.softtwig.crm.bo.RoleBO;
-import com.softtwig.crm.exception.MySalesException;
-import com.softtwig.crm.exception.MySalesLogger;
+import com.softtwig.crm.exception.SalesBizException;
+import com.softtwig.crm.exception.SalesBizLogger;
 import com.softtwig.crm.utils.EncryptAndDecrypt;
 import com.softtwig.crm.utils.ErrorCodes;
 import com.softtwig.crm.vo.AccessLogVO;
@@ -39,7 +39,7 @@ import com.softtwig.crm.vo.User;
 @Repository("adminDAOImpl")
 public class AdminDAOImpl implements AdminDAO {
 
-	public AdminDAOImpl() throws MySalesException {
+	public AdminDAOImpl() throws SalesBizException {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -54,10 +54,10 @@ public class AdminDAOImpl implements AdminDAO {
 
 	}
 
-	private static final MySalesLogger LOGGER = MySalesLogger.getLogger(AdminDAOImpl.class);
+	private static final SalesBizLogger LOGGER = SalesBizLogger.getLogger(AdminDAOImpl.class);
 
 	@Override
-	public User authendicate(String string, String emailAddress) throws MySalesException {
+	public User authendicate(String string, String emailAddress) throws SalesBizException {
 		AdminDAOImpl.LOGGER.entry();
 		User user = null;
 		final String loginQuery = "FROM User E WHERE E.emailAddress = :emailAddress";
@@ -75,7 +75,7 @@ public class AdminDAOImpl implements AdminDAO {
 			if (AdminDAOImpl.LOGGER.isDebugEnabled()) {
 				AdminDAOImpl.LOGGER.debug(ErrorCodes.ENTITY_CRE_FAIL + he);
 			}
-			throw new MySalesException(ErrorCodes.ENTITY_CRE_FAIL, ErrorCodes.ENTITY_CRE_FAIL_MSG);
+			throw new SalesBizException(ErrorCodes.ENTITY_CRE_FAIL, ErrorCodes.ENTITY_CRE_FAIL_MSG);
 		} finally {
 
 			AdminDAOImpl.LOGGER.exit();
@@ -86,7 +86,7 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	@Override
-	public User authendicate(String emailAddress) throws MySalesException {
+	public User authendicate(String emailAddress) throws SalesBizException {
 		AdminDAOImpl.LOGGER.entry();
 		User user = null;
 		final String loginQuery = "FROM User E WHERE E.emailAddress = :emailAddress";
@@ -104,7 +104,7 @@ public class AdminDAOImpl implements AdminDAO {
 			if (AdminDAOImpl.LOGGER.isDebugEnabled()) {
 				AdminDAOImpl.LOGGER.debug(ErrorCodes.ENTITY_CRE_FAIL + he);
 			}
-			throw new MySalesException(ErrorCodes.ENTITY_CRE_FAIL, ErrorCodes.ENTITY_CRE_FAIL_MSG);
+			throw new SalesBizException(ErrorCodes.ENTITY_CRE_FAIL, ErrorCodes.ENTITY_CRE_FAIL_MSG);
 		} finally {
 
 			AdminDAOImpl.LOGGER.exit();
@@ -315,7 +315,7 @@ public class AdminDAOImpl implements AdminDAO {
 
 
 	@Override
-	public User updateuser(User loginVO) throws MySalesException {
+	public User updateuser(User loginVO) throws SalesBizException {
 
 		AdminDAOImpl.LOGGER.entry();
 		try {
@@ -327,7 +327,7 @@ public class AdminDAOImpl implements AdminDAO {
 			if (AdminDAOImpl.LOGGER.isDebugEnabled()) {
 				AdminDAOImpl.LOGGER.debug(ErrorCodes.ENTITY_UPDATE_FAIL + he);
 			}
-			throw new MySalesException(ErrorCodes.ENTITY_UPDATE_FAIL, ErrorCodes.ENTITY_UPDATE_FAIL_MSG);
+			throw new SalesBizException(ErrorCodes.ENTITY_UPDATE_FAIL, ErrorCodes.ENTITY_UPDATE_FAIL_MSG);
 		} finally {
 
 			AdminDAOImpl.LOGGER.exit();

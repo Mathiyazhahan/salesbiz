@@ -33,8 +33,8 @@ import com.softtwig.crm.bo.AdminLoginBO;
 import com.softtwig.crm.bo.AdminUserBO;
 import com.softtwig.crm.bo.PrivilegesBO;
 import com.softtwig.crm.bo.RoleBO;
-import com.softtwig.crm.exception.MySalesException;
-import com.softtwig.crm.exception.MySalesLogger;
+import com.softtwig.crm.exception.SalesBizException;
+import com.softtwig.crm.exception.SalesBizLogger;
 import com.softtwig.crm.security.ControllerUtils;
 import com.softtwig.crm.service.AdminService;
 import com.softtwig.crm.service.RoleTypeService;
@@ -48,7 +48,7 @@ public class AdminController extends ControllerUtils implements Serializable {
 
 	private static final long serialVersionUID = -5857977996611066292L;
 
-	private static final MySalesLogger LOGGER = MySalesLogger.getLogger(AdminController.class);
+	private static final SalesBizLogger LOGGER = SalesBizLogger.getLogger(AdminController.class);
 
 	@Autowired
 	private AdminService adminService;
@@ -102,7 +102,7 @@ public class AdminController extends ControllerUtils implements Serializable {
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping(value = "/create-employees", method = RequestMethod.GET)
-	public String usercreate(Model model, HttpServletRequest request) throws MySalesException, MalformedURLException,
+	public String usercreate(Model model, HttpServletRequest request) throws SalesBizException, MalformedURLException,
 	NumberFormatException, FileNotFoundException, SerialException, SQLException {
 
 		long loginId = getUserSecurity().getLoginId();
@@ -148,7 +148,7 @@ public class AdminController extends ControllerUtils implements Serializable {
 	@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping(value = "/create-employees", method = RequestMethod.POST)
 	public String usercreate(@Valid @ModelAttribute("user") AdminUserBO adminBO, BindingResult result,
-			HttpServletRequest request, Model model) throws MySalesException {
+			HttpServletRequest request, Model model) throws SalesBizException {
 		long userId = 0;
 		try {
 			long loginId = getUserSecurity().getLoginId();
@@ -204,7 +204,7 @@ public class AdminController extends ControllerUtils implements Serializable {
 
 	@RequestMapping(value = "view-employees", method = RequestMethod.GET)
 	public String viewEmployees(Model model, HttpServletRequest request, HttpSession session)
-			throws FileNotFoundException, MySalesException {
+			throws FileNotFoundException, SalesBizException {
 		long loginId = getUserSecurity().getLoginId();
 		//String userType=getUserSecurity().getRole();
 		if (0 == loginId) {
@@ -236,7 +236,7 @@ public class AdminController extends ControllerUtils implements Serializable {
 	@RequestMapping(value = "/search-employees", method = RequestMethod.POST)
 	public String searchEmployees(@Valid @ModelAttribute("searchEmployees") AdminUserBO adminBO, BindingResult result,
 			HttpServletRequest request, Model model, HttpSession session)
-					throws MySalesException, SerialException, SQLException {
+					throws SalesBizException, SerialException, SQLException {
 
 		long loginId =getUserSecurity().getLoginId();
 		if (0 == loginId) {
@@ -266,7 +266,7 @@ public class AdminController extends ControllerUtils implements Serializable {
 
 	@RequestMapping(value = "/active-deactive-user", method = RequestMethod.GET)
 	public String activedeactiveuser(Model model, HttpServletRequest request)
-			throws MySalesException, FileNotFoundException {
+			throws SalesBizException, FileNotFoundException {
 		try {
 			long loginId = getUserSecurity().getLoginId();
 			// String userType=getUserSecurity().getRole();
@@ -307,7 +307,7 @@ public class AdminController extends ControllerUtils implements Serializable {
 	}
 
 	@RequestMapping(value = "/delete-employees", method = RequestMethod.GET)
-	public String deleteUser(Model model, HttpServletRequest request) throws MySalesException, FileNotFoundException {
+	public String deleteUser(Model model, HttpServletRequest request) throws SalesBizException, FileNotFoundException {
 
 		AdminController.LOGGER.entry();
 		long loginId = getUserSecurity().getLoginId();
@@ -336,7 +336,7 @@ public class AdminController extends ControllerUtils implements Serializable {
 	}
 
 	@RequestMapping(value = "/edit-employees", method = RequestMethod.GET)
-	public String edituser(Model model, HttpServletRequest request, HttpSession session) throws MySalesException {
+	public String edituser(Model model, HttpServletRequest request, HttpSession session) throws SalesBizException {
 		try {
 			long loginId = getUserSecurity().getLoginId();
 			if (0 == loginId) {
@@ -375,7 +375,7 @@ public class AdminController extends ControllerUtils implements Serializable {
 
 	@RequestMapping(value = "/edit-employees", method = RequestMethod.POST)
 	public String edit(@Valid @ModelAttribute("updateuser") AdminUserBO adminBO, BindingResult result,
-			HttpServletRequest request, Model model) throws MySalesException {
+			HttpServletRequest request, Model model) throws SalesBizException {
 		//HttpSession session = request.getSession();
 		long loginId = getUserSecurity().getLoginId();
 		// String userType=getUserSecurity().getRole();
@@ -418,7 +418,7 @@ public class AdminController extends ControllerUtils implements Serializable {
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logout(Model model, HttpServletRequest request) throws MySalesException, MalformedURLException {
+	public String logout(Model model, HttpServletRequest request) throws SalesBizException, MalformedURLException {
 		final HttpSession session = request.getSession();
 		String emailId = (String) session.getAttribute("lstatusemailId");
 		LoginStatusVO loginStatusVO = new LoginStatusVO();
@@ -429,7 +429,7 @@ public class AdminController extends ControllerUtils implements Serializable {
 	}
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public String home(Model model, HttpServletRequest request) throws MySalesException, MalformedURLException {
+	public String home(Model model, HttpServletRequest request) throws SalesBizException, MalformedURLException {
 
 		return "redirect:/admin-sign-in";
 	}

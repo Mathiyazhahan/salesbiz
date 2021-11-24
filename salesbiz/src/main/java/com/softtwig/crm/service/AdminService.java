@@ -11,35 +11,35 @@ import com.softtwig.crm.bo.AdminLoginBO;
 import com.softtwig.crm.bo.AdminUserBO;
 import com.softtwig.crm.bo.PrivilegesBO;
 import com.softtwig.crm.bo.RoleBO;
-import com.softtwig.crm.exception.MySalesException;
+import com.softtwig.crm.exception.SalesBizException;
 import com.softtwig.crm.vo.LoginStatusVO;
 
 
 public interface AdminService {
 
-	AdminLoginBO authendicate(AdminLoginBO adminLoginBO) throws MySalesException;
+	AdminLoginBO authendicate(AdminLoginBO adminLoginBO) throws SalesBizException;
 
-	boolean addLoginStatus(String username) throws MySalesException;
+	boolean addLoginStatus(String username) throws SalesBizException;
 
 	public boolean createAccessLog(AccessLogBO logBO);
 
 	boolean editLoginStatus(LoginStatusVO loginStatusVO);
 
-	AdminUserBO createuser(AdminUserBO adminBO) throws MySalesException;
+	AdminUserBO createuser(AdminUserBO adminBO) throws SalesBizException;
 
 	boolean findByEmail(String emailAddress);
 
 	boolean findByMobilenoEmployee(AdminUserBO adminBO);
 
-	List<AdminUserBO> retrieveUser() throws MySalesException;
+	List<AdminUserBO> retrieveUser() throws SalesBizException;
 
 	List<AdminUserBO> searchEmployeeList(AdminUserBO adminBO);
 
-	boolean userStatus(AdminUserBO userBO) throws MySalesException;
+	boolean userStatus(AdminUserBO userBO) throws SalesBizException;
 
-	AdminUserBO deleteProfile(AdminUserBO deleteProfile) throws MySalesException;
+	AdminUserBO deleteProfile(AdminUserBO deleteProfile) throws SalesBizException;
 
-	AdminUserBO retrieveusers(long userId) throws MySalesException;
+	AdminUserBO retrieveusers(long userId) throws SalesBizException;
 
 	AdminUserBO updateuser(AdminUserBO adminBO);
 
@@ -71,7 +71,7 @@ public interface AdminService {
 
 	List<AdminUserBO> retrieveUser(List<AdminUserBO> listUserBo);
 	
-	AdminUserBO retriveUserByName(AdminUserBO bo);
+	AdminUserBO retriveUserByName(AdminUserBO bo) throws Exception;
 
 	RoleBO getPrivilegesbyId(RoleBO rolebo);
 

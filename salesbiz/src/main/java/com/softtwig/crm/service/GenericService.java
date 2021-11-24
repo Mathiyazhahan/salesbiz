@@ -3,7 +3,7 @@ package com.softtwig.crm.service;
 import java.util.Date;
 import java.util.List;
 
-import com.softtwig.crm.exception.MySalesException;
+import com.softtwig.crm.exception.SalesBizException;
 
 
 public interface GenericService<E> {
@@ -15,7 +15,7 @@ public interface GenericService<E> {
 	 * @throws MySalesException
 	 *             ;
 	 */
-	E create(E entity) throws MySalesException;
+	E create(E entity) throws SalesBizException;
 
 	/**
 	 * Create list of new entity and copies properties of given entity.
@@ -32,7 +32,7 @@ public interface GenericService<E> {
 	 * @param entity
 	 * @throws MySalesException
 	 */
-	void delete(Long id) throws MySalesException;
+	void delete(Long id) throws SalesBizException;
 
 	/**
 	 * Deletes given list of entity from database
@@ -41,7 +41,7 @@ public interface GenericService<E> {
 	 * @throws MySalesException
 	 *             ;
 	 */
-	void deleteAll(List<E> entityList) throws MySalesException;
+	void deleteAll(List<E> entityList) throws SalesBizException;
 
 	/**
 	 * Updates given entity to the database
@@ -49,7 +49,7 @@ public interface GenericService<E> {
 	 * @param entity
 	 * @throws MySalesException
 	 */
-	void update(E entity) throws MySalesException;
+	void update(E entity) throws SalesBizException;
 
 	/**
 	 * Updates given list of entity to the database
@@ -67,7 +67,7 @@ public interface GenericService<E> {
 	 *             ;
 	 */
 
-	E findByCriteria(E entity) throws MySalesException;
+	E findByCriteria(E entity) throws SalesBizException;
 
 	/**
 	 * Retrieve entity with given name String.
@@ -78,7 +78,7 @@ public interface GenericService<E> {
 	 */
 
 	E findByParam(String entityParam, String entityParamValue)
-			throws MySalesException;
+			throws SalesBizException;
 
 	/**
 	 * Retrieve entity with given date.
@@ -88,7 +88,7 @@ public interface GenericService<E> {
 	 *             ;
 	 */
 
-	List<E> findByDate(Date fDate, Date tDate) throws MySalesException;
+	List<E> findByDate(Date fDate, Date tDate) throws SalesBizException;
 
 	/**
 	 * Retrieve entity with given id.
@@ -98,6 +98,6 @@ public interface GenericService<E> {
 	 *             ;
 	 */
 
-	E findById(Long long1) throws MySalesException;
+	E findById(Long long1) throws SalesBizException;
 
 }

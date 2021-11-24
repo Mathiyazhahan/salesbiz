@@ -6,11 +6,7 @@ import java.util.Date;
 
 public class AccessLogBO extends BaseBO {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
+private static final long serialVersionUID = 1L;
 private String sessionId;
 private String clientIP;
 private Date accessDate;
