@@ -9,7 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.search.annotations.Analyze;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Store;
 
 @Entity
 @Indexed
@@ -35,6 +39,7 @@ public class CampaignsDO implements Serializable{
 	private double expectedResponse;
 	private int numberSent;
 	private String Description;
+	private Boolean isDeleted;
 	
 	@Id
 	@GeneratedValue
@@ -46,6 +51,7 @@ public class CampaignsDO implements Serializable{
 	public void setCampaignId(int campaignId) {
 		this.campaignId = campaignId;
 	}
+	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
 	@Column(name = "CAMPAIGN_OWNER")
 	public String getCampaignOwner() {
 		return campaignOwner;
@@ -54,6 +60,7 @@ public class CampaignsDO implements Serializable{
 	public void setCampaignOwner(String campaignOwner) {
 		this.campaignOwner = campaignOwner;
 	}
+	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
 	@Column(name = "CAMPAIGN_NAME")
 	public String getCampaignName() {
 		return campaignName;
@@ -62,6 +69,7 @@ public class CampaignsDO implements Serializable{
 	public void setCampaignName(String campaignName) {
 		this.campaignName = campaignName;
 	}
+	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
 	@Column(name = "MOBILE_NO")
 	public long getMobileNo() {
 		return mobileNo;
@@ -70,6 +78,7 @@ public class CampaignsDO implements Serializable{
 	public void setMobileNo(long mobileNo) {
 		this.mobileNo = mobileNo;
 	}
+	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
 	@Column(name = "CAMPAIGN_TYPE")
 	public String getType() {
 		return type;
@@ -78,7 +87,8 @@ public class CampaignsDO implements Serializable{
 	public void setType(String type) {
 		this.type = type;
 	}
-
+	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
+	@Column(name = "STATUS")
 	public String getStatus() {
 		return status;
 	}
@@ -86,6 +96,7 @@ public class CampaignsDO implements Serializable{
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
 	@Column(name = "START_DATE")
 	public Date getStartDate() {
 		return startDate;
@@ -94,6 +105,7 @@ public class CampaignsDO implements Serializable{
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
+	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
 	@Column(name = "END_DATE")
 	public Date getEndDate() {
 		return endDate;
@@ -110,7 +122,7 @@ public class CampaignsDO implements Serializable{
 	public void setExpectedRevenue(double expectedRevenue) {
 		this.expectedRevenue = expectedRevenue;
 	}
-
+	
 	public double getActualCost() {
 		return actualCost;
 	}
@@ -118,7 +130,8 @@ public class CampaignsDO implements Serializable{
 	public void setActualCost(double actualCost) {
 		this.actualCost = actualCost;
 	}
-
+	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
+	@Column(name = "BUDGETED_COST")
 	public double getBudgetedCost() {
 		return budgetedCost;
 	}
@@ -134,6 +147,7 @@ public class CampaignsDO implements Serializable{
 	public void setExpectedResponse(double expectedResponse) {
 		this.expectedResponse = expectedResponse;
 	}
+	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
 	@Column(name = "NUMBER_SENT")
 	public int getNumberSent() {
 		return numberSent;
@@ -142,6 +156,7 @@ public class CampaignsDO implements Serializable{
 	public void setNumberSent(int numberSent) {
 		this.numberSent = numberSent;
 	}
+	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
 	@Column(name = "DESCRIPTION")
 	public String getDescription() {
 		return Description;
@@ -150,5 +165,15 @@ public class CampaignsDO implements Serializable{
 	public void setDescription(String description) {
 		Description = description;
 	}
-    
+	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
+	@Column(name = "IS_DELETED", unique = false, nullable = true)
+	public Boolean getIsDeleted() {
+		return isDeleted;
+	}
+
+	
+	public void setIsDeleted(Boolean isDeleted) {
+		this.isDeleted = isDeleted;
+	}
+
 }
