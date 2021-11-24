@@ -67,6 +67,11 @@ public class OpportunityDO implements Serializable {
 	private double amount;
 	private String role;
 	private String groupBy;
+	
+	//newly added 
+	private String productName;
+	private String salesStage;
+	private String assignedTo;
 
 	/**
 	 * @return the deletedDate
@@ -732,5 +737,29 @@ public class OpportunityDO implements Serializable {
 	 */
 	public void setGroupBy(String groupBy) {
 		this.groupBy = groupBy;
+	}
+	@Column(name="PRODUCT_NAME",unique=false,nullable=true)
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+	@Column(name="SALES_STAGE",unique=false,nullable=true)
+	public String getSalesStage() {
+		return salesStage;
+	}
+
+	public void setSalesStage(String salesStage) {
+		this.salesStage = salesStage;
+	}
+	@Column(name="ASSIGNED_TO",unique=false,nullable=true)
+	public String getAssignedTo() {
+		return assignedTo;
+	}
+
+	public void setAssignedTo(String assignedTo) {
+		this.assignedTo = assignedTo;
 	}
 }
