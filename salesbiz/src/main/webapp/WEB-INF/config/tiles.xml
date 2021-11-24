@@ -176,4 +176,14 @@
 		<put-attribute name="body" value="/jsp/rolemanagement/edit-privilege-access.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="create-campaign" extends="admin.definition">
+		<put-attribute name="title" value="create-campaign"></put-attribute>
+		<put-attribute name="body" value="/jsp/campaign/create-campaign.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="list-campaign" extends="admin.definition">
+		<put-attribute name="title" value="list-campaign"></put-attribute>
+		<put-attribute name="body" value="/jsp/campaign/list-campaign.jsp"></put-attribute>
+	</definition>
+	
 </tiles-definitions> 
