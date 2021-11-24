@@ -80,6 +80,21 @@
 										aria-hidden="true" style="font-size: 8px;"></i> &nbsp;&nbsp;
 										Manage User & Role</a>
 								</div></li>
+								
+								<li class="dropdown" id="fdJobId"><a href="#"
+								class="pd-tp-27" style="font-size: 13px; font-weight: 700;"><span
+									class="dropbtn">Account Management<i class="fa fa-caret-down"
+										aria-hidden="true" style="font-size: 15px; margin-left: 5px;"></i></span></a>
+								<div class="dropdown-content dropdown-menu" role="menu"
+									style="list-style-type: none;">
+									<a href="create-employees" style="height: 15px;"><i
+										class="fa fa-play" aria-hidden="true" style="font-size: 8px;"></i>
+										&nbsp;&nbsp;Create Account</a> <a href="view-employees"
+										style="height: 15px;"><i class="fa fa-play"
+										aria-hidden="true" style="font-size: 8px;"></i>
+										&nbsp;&nbsp;View Account</a>
+								</div></li>
+								
 						</sec:authorize>
 						
 						<sec:authorize access="isAuthenticated()">
