@@ -9,7 +9,7 @@ import org.slf4j.MDC;
  * @author Scube Technologies
  * 
  */
-public class MySalesLogger {
+public class SalesBizLogger {
 
 	/**
 	 * Logger Variable declaration
@@ -34,7 +34,7 @@ public class MySalesLogger {
 	 *            to be performed.
 	 */
 
-	protected MySalesLogger(String loggerName) {
+	protected SalesBizLogger(String loggerName) {
 		this.logger = LoggerFactory.getLogger(loggerName);
 	}
 
@@ -44,7 +44,7 @@ public class MySalesLogger {
 	 *            performed.
 	 */
 
-	protected MySalesLogger(Class<?> clazzName) {
+	protected SalesBizLogger(Class<?> clazzName) {
 		this.logger = LoggerFactory.getLogger(clazzName);
 	}
 
@@ -58,8 +58,8 @@ public class MySalesLogger {
 	 *            to be performed.
 	 */
 
-	public static MySalesLogger getLogger(String loggerName) {
-		return new MySalesLogger(loggerName);
+	public static SalesBizLogger getLogger(String loggerName) {
+		return new SalesBizLogger(loggerName);
 	}
 
 	/**
@@ -71,8 +71,8 @@ public class MySalesLogger {
 	 *            performed.
 	 */
 
-	public static MySalesLogger getLogger(Class<?> clazzName) {
-		return new MySalesLogger(clazzName);
+	public static SalesBizLogger getLogger(Class<?> clazzName) {
+		return new SalesBizLogger(clazzName);
 	}
 
 	/**
@@ -335,7 +335,7 @@ public class MySalesLogger {
 	 **************************************************************************/
 	public void entry() {
 		if (this.logger.isDebugEnabled()) {
-			this.logger.debug(MySalesLogger.ENTRY_MESSAGE,
+			this.logger.debug(SalesBizLogger.ENTRY_MESSAGE,
 					this.getCallingMethodName());
 		}
 	}
@@ -348,7 +348,7 @@ public class MySalesLogger {
 	public void exit() {
 		if (this.logger.isDebugEnabled()) {
 			this.logger
-					.debug(MySalesLogger.EXIT_MESSAGE, this.getCallingMethodName());
+					.debug(SalesBizLogger.EXIT_MESSAGE, this.getCallingMethodName());
 		}
 
 	}
@@ -359,7 +359,7 @@ public class MySalesLogger {
 	 * in the logs.
 	 */
 	private void addMethodNameToMDC() {
-		MDC.put(MySalesLogger.NAME_KEY, this.getCallingMethodName());
+		MDC.put(SalesBizLogger.NAME_KEY, this.getCallingMethodName());
 	}
 
 	/**
@@ -371,7 +371,7 @@ public class MySalesLogger {
 	private String getCallingMethodName() {
 		String methodName = "<unknown>";
 		boolean foundClass = false;
-		final StackTraceElement[] elements = new MySalesException()
+		final StackTraceElement[] elements = new SalesBizException()
 				.getStackTrace();
 		for (final StackTraceElement element : elements) {
 			if (element.getClassName().contains(this.logger.getName())) {
